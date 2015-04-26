@@ -5,9 +5,23 @@
     <script type="text/javascript" src="/scripts/jquery.js"></script>
     <script type="text/javascript" src="/scripts/underscore.js"></script>
     <script type="text/javascript" src="/scripts/backbone.js"></script>
+    <script type='text/template' id='food-template'>
+      <article class='food'>
+        <h3><%%= title %></h3>
+        <%%= message %>
+      </article>
+    </script>
+
+
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
   <body>
+
+    <h1>This Is The Restaurant App</h1>
+
+    <section id="food-container">
+
+    </section>
 
   </body>
 </html>
