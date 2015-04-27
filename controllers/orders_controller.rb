@@ -1,15 +1,29 @@
-class
+class OrdersController < Sinatra::Base
 
   # ORDER ROUTES
-  post '/api/orders' do #Creates a new order
+
+  get '/' do #All orders
+    content_type :json
+    orders = Order.all
+    orders.to_json
+  end
+
+  get '/:id' do #
+    content_type :json
+    id = params[:id]
+    order = Order.find(id)
+    order.to_json
+  end
+
+  post '/' do #Creates a new order
     content_type :json
     data = params[:order]
     new_order = Order.create(data)
     new_order.to_json
   end
 
-  patch '/api/orders/:id' do #Change item to no-charge
-    content type :json
+  patch '/:id' do #Change item to no-charge
+    content_type :json
     id = params[:id].to_i
     data = params[:order]
     order = Order.find(id)
@@ -17,8 +31,8 @@ class
     order.to_json
   end
 
-  put '/api/orders/:id' do #Change item to no-charge
-    content type :json
+  put '/:id' do #Change item to no-charge
+    content_type :json
     id = params[:id].to_i
     data = params[:order]
     order = Order.find(id)
@@ -26,7 +40,7 @@ class
     order.to_json
   end
 
-  delete '/api/orders/:id' do #Removes an order
+  delete '/:id' do #Removes an order
     content_type :json
     id = params[:id].to_i
     Order.delete(id)
