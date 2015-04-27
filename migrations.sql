@@ -7,7 +7,8 @@ CREATE DATABASE restaurant;
 CREATE TABLE foods(
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
-  price INTEGER
+  cents INTEGER,
+  cuisine VARCHAR(255)
 );
 
 CREATE TABLE parties (
@@ -21,4 +22,10 @@ CREATE TABLE orders(
   id SERIAL PRIMARY KEY,
   food_id INTEGER,
   table_id INTEGER
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(255),
+  password_hash VARCHAR(255)
 );
