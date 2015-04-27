@@ -1,7 +1,7 @@
 class FoodsController < Sinatra::Base
 
   enable  :sessions
-  # helpers Sinatra::SessionHelper
+  helpers Sinatra::SessionHelper
 
   get '/' do #All food items available
     content_type :json

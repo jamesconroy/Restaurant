@@ -1,7 +1,20 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: lightblue;
+  background-color: #F8BC2D;
+  font-family: 'Istok Web', sans-serif;
+}
+
+a {
+  font-size: 18px;
+}
+
+input {
+  border: 1px solid black;
+  padding: 15px;
+  background: #F8E2A9;
+  font-size: 18px;
+  font-family: 'Istok Web', sans-serif;
 }
 
 .card {

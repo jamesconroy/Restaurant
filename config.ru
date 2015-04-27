@@ -1,11 +1,17 @@
+# ***** GEMS *****
 require 'bundler'
 Bundler.require()
 
+# ***** CONNECTION *****
 ActiveRecord::Base.establish_connection(
   :adapter => 'postgresql',
   :database => 'restaurant'
 )
 
+# ***** HELPERS *****
+require './helpers/session_helpers'
+
+# ***** MODELS *****
 require './models/order'
 require './models/food'
 require './models/party'
