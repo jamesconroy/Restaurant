@@ -5,11 +5,12 @@
   </head>
   <body>
 
+    <h2>Greetings Manager</h2>
 
-    <ul class='interface-list' id='menu-list'>
-    </ul>
-    <ul class='interface-list' id='party-list'>
-    </ul>
+    <form action="/sessions" method='post'>
+      <input type="hidden" name='_method' value='delete'>
+      <input type="submit" value='log-out'>
+    </form>
 
 
     <!-- ****** JS Libraries ****** -->
@@ -19,19 +20,12 @@
 
     <!-- ****** Backbone Models ****** -->
     <script src='/javascripts/models/FoodModel.js'></script>
-    <script src='/javascripts/models/PartyModel.js'></script>
 
     <!-- ****** Backbone Collection ****** -->
     <script src='/javascripts/collections/FoodCollection.js'></script>
-    <script src='/javascripts/collections/PartyCollection.js'></script>
 
-    <!-- ****** Backbone Views ****** -->
-    <script src='/javascripts/views/FoodView.js'></script>
-    <script src='/javascripts/views/PartyView.js'></script>
-    <script src='/javascripts/views/GeneralListView.js'></script>
-
-    <!-- ****** JS Application ****** -->
-    <script src='/javascripts/app.js'></script>
+    <!-- ****** Application ****** -->
+    <script src='/javascripts/adminApp.js'></script>
 
   </body>
 </html>
