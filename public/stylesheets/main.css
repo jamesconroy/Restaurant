@@ -3,10 +3,13 @@ body {
   padding: 0;
   background-color: #F8BC2D;
   font-family: 'Istok Web', sans-serif;
+  color: #47292B;
 }
 
 a {
   font-size: 18px;
+  text-decoration: none;
+  color: #47292B;
 }
 
 input {
