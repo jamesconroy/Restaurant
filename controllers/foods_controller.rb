@@ -18,7 +18,7 @@ class FoodsController < Sinatra::Base
   end
 
   # ROUTES
-  get '/' do #All food items available
+  get '/' do
     content_type :json
     foods = Food.all
     foods.to_json

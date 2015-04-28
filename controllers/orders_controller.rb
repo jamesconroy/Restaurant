@@ -1,49 +1,57 @@
 class OrdersController < Sinatra::Base
+  enable :sessions
 
-  # ORDER ROUTES
+  # HELPERS
+  def order_params
+    return params[:order] if params[:order]
+    body_data = {}
+    @request_bod ||= request.body.read.to_s
+    body_data = (JSON(@request_body)) unless @request_body.empty?
+    body_data = body_data['order'] || body_data
+  end
 
-  get '/' do #All orders
-    content_type :json
+  # DEBUGGING
+  get '/pry' do
+    binding.pry
+  end
+
+  # ROUTES
+
+  get '/' do
     orders = Order.all
+    content_type :json
     orders.to_json
   end
 
-  get '/:id' do #
+  get '/:id' do
+    order = Order.find(params[:id])
     content_type :json
-    id = params[:id]
-    order = Order.find(id)
     order.to_json
   end
 
-  post '/' do #Creates a new order
+  post '/' do
+    new_order = Order.create(order_params)
     content_type :json
-    data = params[:order]
-    new_order = Order.create(data)
     new_order.to_json
   end
 
-  patch '/:id' do #Change item to no-charge
+  patch '/:id' do
+    order = Order.find(params[:id])
+    order.update(order_params)
     content_type :json
-    id = params[:id].to_i
-    data = params[:order]
-    order = Order.find(id)
-    order.update(data)
     order.to_json
   end
 
-  put '/:id' do #Change item to no-charge
+  put '/:id' do
+    order = Order.find(params[:id])
+    order.update(order_params)
     content_type :json
-    id = params[:id].to_i
-    data = params[:order]
-    order = Order.find(id)
-    order.update(data)
     order.to_json
   end
 
-  delete '/:id' do #Removes an order
+  delete '/:id' do
+    Order.destroy(params[:id])
     content_type :json
-    id = params[:id].to_i
-    Order.delete(id)
     {message: "order has been deleted"}.to_json
   end
 

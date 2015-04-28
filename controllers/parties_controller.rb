@@ -1,65 +1,56 @@
 class PartiesController < Sinatra::Base
-
   enable  :sessions
 
+  # HELPERS
+  def party_params
+    return params[:party] if params[:party]
+    body_data = {}
+    @request_body ||= request.body.read.to_s
+    body_data = body_data['party'] || body_data
+  end
+
+  # DEBUGGING
+  get '/pry' do
+    binding.pry
+  end
+
   # **********PARTY ROUTES**********
-  get '/' do #All parties
-    content_type :json
+  get '/' do
     parties = Party.all
-    parties.to_json
+    content_type :json
+    parties.to_json(include: :foods)
   end
 
-  get '/:id' do #A single party and all the orders it contains
+  get '/:id' do
+    party = Party.find(params[:id])
     content_type :json
-    id = params[:id].to_i
-    party = Party.find(id)
-    party.to_json
-    # partyOrders = party.orders
-    # partyOrders.to_json
-  end
-
-  post '/' do #Creates a new party
-    content_type :json
-    data = params[:party]
-    new_party = Party.create(data)
-    new_party.to_json
-  end
-
-  patch '/:id' do #Updates a party
-    content_type :json
-    id = params[:id].to_i
-    data = params[:party]
-    party = Party.find(id)
-    party.update(data)
     party.to_json
   end
 
-  put '/:id' do #Updates a party
+  post '/' do
+    new_party = Party.create(party_params)
     content_type :json
-    id = params[:id].to_i
-    data = params[:party]
-    party = Party.find(id)
-    party.update(data)
-    party.to_json
+    new_party.to_json(include: :foods)
   end
 
-  delete '/:id' do #Deletes a party
+  patch '/:id' do
+    party = Party.find(params[:id])
+    party.update(partyparams)
     content_type :json
-    id = params[:id].to_i
-    Party.delete(id)
+    party.to_json(include: :foods)
+  end
+
+  put '/:id' do
+    party = Party.find(params[:id])
+    party.update(party_params)
+    content_type :json
+    party.to_json(include: :foods)
+  end
+
+  delete '/:id' do
+    Party.destroy(params[:id])
+    content_type :json
     {message: 'party deleted'}.to_json
-  end
-
-  get '/:id/receipt' do #Saves the party's receipt data to a file.
-
-  end
-
-  patch '/:id/checkout' do #Marks the party as paid
-
-  end
-
-  patch '/:id/checkout' do #Marks the party as paid
-
   end
 
 end

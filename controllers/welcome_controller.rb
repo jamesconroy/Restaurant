@@ -6,12 +6,12 @@ class WelcomeController < Sinatra::Base
   set :public_folder, File.expand_path('../../public', __FILE__)
 
 
-  # ***** Debugging *****
+  #DEBUGGING
   get '/pry' do
     binding.pry
   end
 
-  # ***** ROUTES *****
+  #ROUTES
   get '/' do
     erb :index
   end
