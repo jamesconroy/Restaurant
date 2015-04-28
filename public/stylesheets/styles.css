@@ -1,9 +1,29 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #F8BC2D;
+  background-color: #ACD8C4;
   font-family: 'Istok Web', sans-serif;
   color: #47292B;
+}
+
+#menu-list{
+  background-color: #F8BC2D;
+  float: left;
+  width: 400px;
+}
+
+#party-list{
+  float:right;
+  width: 400px;
+  background-color: #F47320;
+}
+
+#party-list ul{
+  padding: 10px, 0px, 0px, 0px;
+}
+
+li {
+  list-style: none;
 }
 
 a {
