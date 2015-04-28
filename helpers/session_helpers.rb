@@ -12,7 +12,5 @@ module Sinatra
     def authenticate_api!
       halt 403 unless current_user
     end
-
   end
-  
 end

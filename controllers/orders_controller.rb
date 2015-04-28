@@ -5,7 +5,7 @@ class OrdersController < Sinatra::Base
   def order_params
     return params[:order] if params[:order]
     body_data = {}
-    @request_bod ||= request.body.read.to_s
+    @request_body ||= request.body.read.to_s
     body_data = (JSON(@request_body)) unless @request_body.empty?
     body_data = body_data['order'] || body_data
   end
@@ -16,7 +16,6 @@ class OrdersController < Sinatra::Base
   end
 
   # ROUTES
-
   get '/' do
     orders = Order.all
     content_type :json
@@ -30,9 +29,9 @@ class OrdersController < Sinatra::Base
   end
 
   post '/' do
-    new_order = Order.create(order_params)
+    order = Order.create(order_params)
     content_type :json
-    new_order.to_json
+    order.to_json
   end
 
   patch '/:id' do
@@ -49,10 +48,10 @@ class OrdersController < Sinatra::Base
     order.to_json
   end
 
-  delete '/:id' do
+  delete ':id' do
     Order.destroy(params[:id])
     content_type :json
-    {message: "order has been deleted"}.to_json
+    {message: "order deleted"}.to_json
   end
 
-end
+  end

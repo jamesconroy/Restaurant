@@ -4,19 +4,19 @@ $(document).ready(function(){
 
   app.foods = new app.FoodCollection({
     model: app.FoodModel
-  });
+  })
 
   app.parties = new app.PartyCollection({
     model: app.PartyModel
-  });
+  })
 
-  app.foodListPainter = new GeneralListView({
+  app.foodListPainter = new app.GeneralListView({
     modelView: app.FoodView,
     collection: app.foods,
     el: $('#menu-list')
   });
 
-  app.partyListPainter = new GeneralListView({
+  app.partyListPainter = new app.GeneralListView({
     modelView: app.PartyView,
     collection: app.parties,
     el: $('#party-list')

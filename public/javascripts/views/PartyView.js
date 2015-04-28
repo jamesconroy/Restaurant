@@ -6,12 +6,12 @@ app.PartyView = Backbone.View.extend({
     this.listenTo(this.model, 'delete', this.remove);
   },
   template: _.template('<h3><%= table_number %><button class="select-party">Select</button>'),
-  tagname: 'li',
+  tagName: 'li',
   className: 'party',
   render: function(){
     this.$el.append(this.template(this.model.attributes));
     this.renderFoodList();
-    return this
+    return this;
   },
   renderFoodList: function(){
     var foods = this.model.get('foods')
@@ -20,7 +20,7 @@ app.PartyView = Backbone.View.extend({
       foodList.append($('<li>').text(foods[i]['name']));
     }
     this.$el.append(foodList);
-  };
+  },
   events:{
     'click .select-party': 'selectParty'
   },

@@ -1,25 +1,25 @@
 source 'http://rubygems.org'
 
-#Framework
+# FRAMEWORK
 gem 'sinatra'
 
-#Database
+# DATABASE
 gem 'sinatra-activerecord'
 gem 'pg'
 
-#Password Encryption
+# PASSWORD ENCRYPTION
 gem 'bcrypt'
 
-#Utility
+# UTILITY
 gem 'json'
 gem 'rake'
 
-#Debugging
+# DEBUGGING
 gem 'pry'
 
-#Testing
+# TESTING
 group :test do
   gem 'minitest'
   gem 'minitest-reporters'
-  gem "rack-test"
+  gem 'rack-test'
 end

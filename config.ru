@@ -1,33 +1,33 @@
-# ***** GEMS *****
-require 'bundler'
-Bundler.require()
+# GEMS
+require 'bundler/setup'
+Bundler.require
 
-# ***** CONNECTION *****
+# CONNECTION
 ActiveRecord::Base.establish_connection(
   :adapter => 'postgresql',
-  :database => 'restaurant'
+  :database => 'restaurant_pos'
 )
 
-# ***** HELPERS *****
+# HELPERS
 require './helpers/session_helpers'
 
-# ***** MODELS *****
-require './models/order'
-require './models/food'
+# MODELS
 require './models/party'
+require './models/food'
+require './models/order'
 require './models/user'
 
-# ***** CONTROLLERS *****
+# CONTROLLERS
 require './controllers/foods_controller'
-require './controllers/orders_controller'
 require './controllers/parties_controller'
+require './controllers/orders_controller'
 require './controllers/sessions_controller'
 require './controllers/welcome_controller'
 
-# ***** ROUTING *****
-map('/api/foods') { run FoodsController.new() }
-map('/api/orders') {run OrdersController.new()}
+# ROUTING
+map('/api/foods') {run FoodsController.new()}
 map('/api/parties') {run PartiesController.new()}
-map('/sessions') {run SessionsController.new()}
+map('/api/orders') {run OrdersController.new()}
+map('/api/sessions') {run SessionsController.new()}
 
 map('/') {run WelcomeController.new()}

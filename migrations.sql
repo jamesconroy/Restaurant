@@ -1,27 +1,23 @@
-psql
+CREATE DATABASE restaurant_pos;
+\c restaurant_pos
 
-CREATE DATABASE restaurant;
-
-\c restaurant;
-
-CREATE TABLE foods(
+CREATE TABLE foods (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   cents INTEGER,
-  cuisine VARCHAR(255)
+  cusine VARCHAR(255)
 );
 
 CREATE TABLE parties (
   id SERIAL PRIMARY KEY,
-  total_guests INTEGER,
   table_number INTEGER,
-  paid BOOLEAN
+  is_paid BOOLEAN
 );
 
-CREATE TABLE orders(
+CREATE TABLE orders (
   id SERIAL PRIMARY KEY,
-  food_id INTEGER,
-  table_id INTEGER
+  party_id INTEGER,
+  food_id INTEGER
 );
 
 CREATE TABLE users (

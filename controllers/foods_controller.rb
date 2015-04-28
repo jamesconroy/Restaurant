@@ -1,15 +1,14 @@
 class FoodsController < Sinatra::Base
-  enable  :sessions
+  enable :sessions
   helpers Sinatra::SessionHelper
 
   # HELPERS
   def food_params
     return params[:food] if params[:food]
-      body_data = {}
-      @request_body ||=request_body.read.to_s
-      body_data = (JSON(@request_body)) unless @request_body.empty?
-      body_data = body_data['food'] || body_data
-    end
+    body_data = {}
+    @request_body ||= request_body.read.to_s
+    body_data = (JSON(@request_body)) unless @request_body.empty?
+    body_data = body_data['food'] || body_data
   end
 
   # DEBUGGING
@@ -19,25 +18,25 @@ class FoodsController < Sinatra::Base
 
   # ROUTES
   get '/' do
-    content_type :json
     foods = Food.all
+    content_type :json
     foods.to_json
   end
 
-  get '/:id' do #A single food item and all the parties that included it
-    content_type :json
+  get '/:id' do
     food = Food.find(params[:id])
+    content_type :json
     food.to_json
   end
 
-  post '/' do #Creates a new food item
+  post '/' do
     authenticate_api!
-    new_food = Food.create(food_params)
+    food = Food.create(food_params)
     content_type :json
-    new_food.to_json
+    food.to_json
   end
 
-  patch '/:id' do #Updates a food item
+  patch '/:id' do
     authenticate_api!
     food = Food.find(params[:id])
     food.update(food_params)
@@ -45,18 +44,19 @@ class FoodsController < Sinatra::Base
     food.to_json
   end
 
-  put '/:id' do #Updates a food item
+  put '/:id' do
     authenticate_api!
-    food = Food.find(params[:food])
+    food = Food.find(params[:id])
     food.update(food_params)
     content_type :json
     food.to_json
   end
 
-  delete '/:id' do #Deletes a food item
+  delete '/:id' do
     authenticate_api!
     Food.destroy(params[:id])
     content_type :json
-    {message: 'food item deleted'}.to_json
+    {message: "food deleted"}.to_json
   end
+
 end

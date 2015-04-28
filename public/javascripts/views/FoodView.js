@@ -1,7 +1,7 @@
 var app = app || {};
-app.FoodViewTemplate = $('food-template').html();
+app.FoodViewTemplate = $('#food-template').html();
 
-app FoodView = Backbone.View.extend({
+app.FoodView = Backbone.View.extend({
   initialize: function(){
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model, 'delete', this.remove);

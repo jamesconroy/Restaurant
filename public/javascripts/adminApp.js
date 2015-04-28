@@ -1,4 +1,4 @@
-car app = app || {};
+var app = app || {};
 
 app.foods = new FoodCollection({
   model: app.foodModel
