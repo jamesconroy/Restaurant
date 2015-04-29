@@ -3,14 +3,16 @@
     <title>RESTaurant</title>
     <link rel="stylesheet" href="/stylesheets/styles.css">
   </head>
-  <body>
+  <body class='auth'>
+    <div class="sign-in">
+      <h2>Greetings Manager</h2>
 
-    <h2>Greetings Manager</h2>
+      <form action="/sessions" method='post'>
+        <input type="hidden" name='_method' value='delete'>
+        <input type="submit" value='log-out'>
+      </form>
+    </div>
 
-    <form action="/sessions" method='post'>
-      <input type="hidden" name='_method' value='delete'>
-      <input type="submit" value='log-out'>
-    </form>
 
 
     <!-- ****** JS Libraries ****** -->

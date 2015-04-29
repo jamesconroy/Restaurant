@@ -22,6 +22,27 @@ $(document).ready(function(){
     el: $('#party-list')
   });
 
-  app.parties.fetch();
-  app.foods.fetch();
+  function updateAll(){
+    app.parties.fetch();
+    app.foods.fetch();
+  }
+
+  updateAll();
+
+  $('#place-order').on('click', function(){
+    var partyId = app.partySelection.get('id');
+    var foodId = app.foodSelection.get('id');
+
+    $.ajax({
+      method: 'post',
+      url: '/api/orders',
+      data: {order: {party_id: partyId, food_id: foodId}},
+      success: function(){
+        updateAll({reset: true});
+
+        $('food-selected').removeClass('food-selected');
+        $('party-selected').removeClass('party-selected');
+      }
+    })
+  })
 });

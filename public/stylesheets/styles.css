@@ -6,6 +6,24 @@ body {
   color: #47292B;
 }
 
+.food-selected, .party-selected {
+  border: 1px solid black;
+}
+
+.auth {
+  background-image: url(http://greenstreetmeats.com/wp-content/uploads/2014/02/straight-shot.jpg);
+}
+
+.auth h2 {
+  color: white;
+}
+
+.sign-in {
+  margin: 200px auto;
+  width: 200px;
+  height: 200px;
+}
+
 #menu-list{
   background-color: #F8BC2D;
   float: left;
@@ -29,7 +47,7 @@ li {
 a {
   font-size: 18px;
   text-decoration: none;
-  color: #47292B;
+  color: white;
 }
 
 input {
