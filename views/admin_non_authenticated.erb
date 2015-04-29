@@ -5,9 +5,12 @@
   </head>
   <body class='auth'>
 
-    <h2>Managers Only</h2>
+    <div class="manager">
+      <h2>Managers Only</h2>
+      <a href="/">Not a manager?</a>
+    </div>
+
     <div class="sign-in">
-      <a href="/">Sign In</a>
 
       <form action="/sessions" method="post">
         <input type="text" name="username" placeholder='...username'>

@@ -6,6 +6,10 @@ body {
   color: #47292B;
 }
 
+.manager {
+  margin: 0 auto;
+}
+
 .food-selected, .party-selected {
   border: 1px solid black;
 }
@@ -45,9 +49,14 @@ li {
 }
 
 a {
+  display: inline-block;
   font-size: 18px;
+  padding: 10px;
   text-decoration: none;
   color: white;
+  border-radius: 5px;
+  margin: 0 auto;
+  background-color:gray;
 }
 
 input {
@@ -81,7 +90,7 @@ h4 {
 }
 
 .order-food {
-  float: left;
+  /*float: left;*/
 }
 
 table {

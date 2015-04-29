@@ -1,10 +1,13 @@
 <script type='text/template' id='food-template'>
-  <h3><%%= name %></h3>
-  <p><%%= cents %></p>
-  <button class="select-food">Select</button>
+  <div>
+    <h3><%%= name %></h3>
+    <p>$<%%= (cents/100) %></p>
+    <button class="select-food">Select</button>
+  </div>
 </script>
 
 <script type='text/template' id='party-template'>
   <h3><%%= table_number %></h3>
+  <h3><%%= name %></h3>
   <button class="select-party">Select</button>
 </script>

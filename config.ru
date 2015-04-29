@@ -28,6 +28,6 @@ require './controllers/welcome_controller'
 map('/api/foods') {run FoodsController.new()}
 map('/api/parties') {run PartiesController.new()}
 map('/api/orders') {run OrdersController.new()}
-map('/api/sessions') {run SessionsController.new()}
+map('/sessions') {run SessionsController.new()}
 
 map('/') {run WelcomeController.new()}

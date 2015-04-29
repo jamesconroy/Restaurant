@@ -18,6 +18,7 @@ app.PartyView = Backbone.View.extend({
     var foodList = $('<ul>');
     for (var i = 0; i < foods.length; i++) {
       foodList.append($('<li>').text(foods[i]['name']));
+      foodList.append($('<li>').text(foods[i]['cents']));
     }
     this.$el.append(foodList);
   },
