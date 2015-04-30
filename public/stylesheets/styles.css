@@ -19,7 +19,7 @@ body {
 }
 
 #place-order {
-  
+
 }
 
 .auth {
@@ -40,16 +40,26 @@ body {
   background-color: #F8BC2D;
   float: left;
   width: 400px;
+  padding: 0;
+}
+
+#menu-info {
+  padding-left: 40px;
+}
+
+#party-info {
+  padding-left: 40px;
 }
 
 #party-list{
-  float:right;
+  float:left;
   width: 400px;
   background-color: #F47320;
+  padding: 0;
 }
 
 #party-list ul{
-  padding: 10px, 0px, 0px, 0px;
+  padding: 10px, 0px;
 }
 
 li {

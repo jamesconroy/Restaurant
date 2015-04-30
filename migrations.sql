@@ -1,5 +1,5 @@
-CREATE DATABASE restaurant_pos;
-\c restaurant_pos
+CREATE DATABASE restaurant;
+\c restaurant
 
 CREATE TABLE foods (
   id SERIAL PRIMARY KEY,

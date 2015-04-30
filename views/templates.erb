@@ -1,12 +1,20 @@
 <script type='text/template' id='food-template'>
-  <div>
-    <h3><%%= name %></h3>
-    <p>$<%%= (cents/100) %></p>
+  <div id=menu-info>
+    <table id=menu-table>
+      <tr>
+        <td><%%= name %> / </td>
+        <td>$<%%= (cents/100) %> / </td>
+        <td id=><%%=cusine%></td>
+      </tr>
+    </table>
     <button class="select-food">Select</button>
   </div>
 </script>
 
 <script type='text/template' id='party-template'>
-  <h3><%%= table_number %></h3>
-  <button class="select-party">Select</button>
+  <div id="party-info">
+    <h3>Table #<%%= table_number %></h3>
+    <button class="select-party">Select</button>
+  </div>
+
 </script>

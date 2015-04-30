@@ -54,4 +54,9 @@ class PartiesController < Sinatra::Base
     {message: "deleted party"}.to_json
   end
 
+  get '/:id/receipt' do
+    party = Party.find(params[:id])
+    
+  end
+
 end
