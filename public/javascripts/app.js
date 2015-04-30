@@ -22,6 +22,7 @@ $(document).ready(function(){
     el: $('#party-list')
   });
 
+
   function updateAll(){
     app.parties.fetch();
     app.foods.fetch();

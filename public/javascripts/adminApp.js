@@ -1,7 +1,11 @@
 var app = app || {};
 
-app.foods = new FoodCollection({
-  model: app.foodModel
-});
+$(document).ready(function(){
 
-app.foods.fetch();
+  app.foods = new app.FoodCollection({
+    model: app.FoodModel
+  });
+
+  app.foods.fetch();
+
+});

@@ -6,6 +6,10 @@ body {
   color: #47292B;
 }
 
+.table-header {
+  padding-left: 40px;
+}
+
 .manager {
   margin: 0 auto;
 }
@@ -16,10 +20,6 @@ body {
 
 .party-selected {
   background-color: #FFAB75;
-}
-
-#place-order {
-
 }
 
 .auth {
